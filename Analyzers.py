@@ -1,5 +1,5 @@
 import lucene
 from org.apache.pylucene.analysis import PythonAnalyzer
-from  org.apache.lucene.analysis.core import WhitespaceAnalyzer
+from  org.apache.lucene.analysis.core import SimpleAnalyzer
 
-BaselineAnalyzer = WhitespaceAnalyzer
+BaselineAnalyzer = SimpleAnalyzer
