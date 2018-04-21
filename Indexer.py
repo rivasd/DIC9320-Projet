@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 
 from bs4 import BeautifulSoup
 
-from Analyzers import BaselineAnalyzer
+from Analyzers import BaselineAnalyzer, BetterAnalyzer
 from java.nio.file import Paths
 from org.apache.lucene.store import SimpleFSDirectory
 from org.apache.lucene.document import Document, Field, FieldType
@@ -14,16 +14,6 @@ from org.apache.lucene.index import \
 import org.apache.pylucene
 
 lucene.initVM(vmargs=['-Djava.awt.headless=true'])
-
-
-if not os.path.exists("./Indexes/Baseline"):
-    os.mkdir("./Indexes/Baseline")
-
-store       = SimpleFSDirectory(Paths.get("./Indexes/Baseline"))
-analyzer    = BaselineAnalyzer()
-config      = IndexWriterConfig(analyzer)
-config.setOpenMode(IndexWriterConfig.OpenMode.CREATE)
-writer = IndexWriter(store, config)
 
 tag_field_type = FieldType()
 tag_field_type.setStored(True)
@@ -35,40 +25,88 @@ content_field_type.setStored(True)
 content_field_type.setTokenized(True)
 content_field_type.setIndexOptions(IndexOptions.DOCS_AND_FREQS_AND_POSITIONS)
 
+# just a simple function to output a progressbar during indexing
+def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '█'):
+    """
+    Call in a loop to create terminal progress bar
+    @params:
+        iteration   - Required  : current iteration (Int)
+        total       - Required  : total iterations (Int)
+        prefix      - Optional  : prefix string (Str)
+        suffix      - Optional  : suffix string (Str)
+        decimals    - Optional  : positive number of decimals in percent complete (Int)
+        length      - Optional  : character length of bar (Int)
+        fill        - Optional  : bar fill character (Str)
+    """
+    percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
+    filledLength = int(length * iteration // total)
+    bar = fill * filledLength + '-' * (length - filledLength)
+    print('\r%s |%s| %s%% %s' % (prefix, bar, percent, suffix), end = '\r')
+    # Print New Line on Complete
+    if iteration == total: 
+        print()
 
-for TrecFile in os.listdir("./AP"):
-    with open(os.path.abspath(os.path.join("AP",TrecFile)), 'r') as docfile:
-        contents    = docfile.read()
-        xml         = '<ROOT>' + contents + "</ROOT>"
-        root        = BeautifulSoup(xml, 'lxml')
-        for doc in root.find_all('doc'):
-            luceneDoc   = Document()
-            
-            file_id     = doc.find('fileid').text.strip()
+def index(name, analyzer):
 
-            if doc.find('head') is not None:
-                head        = doc.find('head').text.strip()
-                luceneDoc.add(Field('head', head, tag_field_type))
+    if not os.path.exists(os.path.join("./Indexes", name)):
+        os.mkdir(os.path.join("./Indexes", name))
 
-            if doc.find('docno') is not None:
-                doc_no      = doc.find('docno').text.strip()
-                luceneDoc.add(Field('docno', doc_no, tag_field_type))
+    store       = SimpleFSDirectory(Paths.get(os.path.join("./Indexes", name)))
+    analyzer    = BaselineAnalyzer()
+    config      = IndexWriterConfig(analyzer)
+    config.setOpenMode(IndexWriterConfig.OpenMode.CREATE)
+    writer = IndexWriter(store, config)
 
-            if doc.find('dateline') is not None:
-                dateline      = doc.find('dateline').text.strip()
-                luceneDoc.add(Field('dateline', dateline, tag_field_type))
+    files_to_index = os.listdir("./AP")
+    length = len(files_to_index)
+    print("Indexing %d files" % length)
 
-            if doc.find('first') is not None:
-                first      = doc.find('first').text.strip()
-                luceneDoc.add(Field('first', first, tag_field_type))
+    for index, TrecFile in enumerate(files_to_index):
 
-            for text_el in doc.find_all('text'):
-                text        = text_el.text.strip()
-                luceneDoc.add(Field('text', text, content_field_type))
+        with open(os.path.abspath(os.path.join("AP",TrecFile)), 'r', encoding="utf-8") as docfile:
+            try:
+                contents    = docfile.read()
+            except UnicodeDecodeError:
+                pass
+            xml         = '<ROOT>' + contents + "</ROOT>"
+            root        = BeautifulSoup(xml, 'lxml')
 
-            
+            printProgressBar(index, length, TrecFile+"[", "]")
 
-            writer.addDocument(luceneDoc)
-        writer.commit()
+            for doc in root.find_all('doc'):
+                luceneDoc   = Document()
 
-writer.close()
+                if doc.find('fileid') is not None:
+                    fileid        = doc.find('fileid').text.strip()
+                    luceneDoc.add(Field('fileid', fileid, tag_field_type))
+
+                if doc.find('head') is not None:
+                    head        = doc.find('head').text.strip()
+                    luceneDoc.add(Field('head', head, tag_field_type))
+
+                if doc.find('docno') is not None:
+                    doc_no      = doc.find('docno').text.strip()
+                    luceneDoc.add(Field('docno', doc_no, tag_field_type))
+
+                if doc.find('dateline') is not None:
+                    dateline      = doc.find('dateline').text.strip()
+                    luceneDoc.add(Field('dateline', dateline, tag_field_type))
+
+                if doc.find('first') is not None:
+                    first      = doc.find('first').text.strip()
+                    luceneDoc.add(Field('first', first, tag_field_type))
+
+                for text_el in doc.find_all('text'):
+                    text        = text_el.text.strip()
+                    luceneDoc.add(Field('text', text, content_field_type))
+
+                
+
+                writer.addDocument(luceneDoc)
+    writer.commit()
+
+    writer.close()
+
+if __name__ == "__main__":
+
+    index("Standard", BetterAnalyzer)
