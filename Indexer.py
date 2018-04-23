@@ -1,7 +1,7 @@
 import lucene
 import os
 import re
-import xml.etree.ElementTree as ET
+import argparse
 
 from bs4 import BeautifulSoup
 
@@ -11,6 +11,7 @@ from org.apache.lucene.store import SimpleFSDirectory
 from org.apache.lucene.document import Document, Field, FieldType
 from org.apache.lucene.index import \
     FieldInfo, IndexWriter, IndexWriterConfig, IndexOptions
+from org.apache.lucene.search.similarities import ClassicSimilarity, BM25Similarity
 import org.apache.pylucene
 
 lucene.initVM(vmargs=['-Djava.awt.headless=true'])
@@ -46,28 +47,39 @@ def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, 
     if iteration == total: 
         print()
 
-def index(name, analyzer):
+def index(analyzer="baseline", similarity="classic"):
 
-    if not os.path.exists(os.path.join("./Indexes", name)):
-        os.mkdir(os.path.join("./Indexes", name))
+    idx_name = analyzer.lower()+"_"+similarity.lower()
 
-    store       = SimpleFSDirectory(Paths.get(os.path.join("./Indexes", name)))
-    analyzer    = BaselineAnalyzer()
-    config      = IndexWriterConfig(analyzer)
+    if not os.path.exists(os.path.join("./Indexes", idx_name)):
+        os.mkdir(os.path.join("./Indexes", idx_name))
+
+    store       = SimpleFSDirectory(Paths.get(os.path.join("./Indexes", idx_name)))
+    
+    if analyzer=="better":
+        analyzer_inst = BetterAnalyzer()
+    elif analyzer=="baseline":
+        analyzer_inst = BaselineAnalyzer()
+
+    config      = IndexWriterConfig(analyzer_inst)
+
+    if similarity.lower()=="classic":
+        config.setSimilarity(ClassicSimilarity())
+    elif similarity.lower()=="bm25":
+        config.setSimilarity(BM25Similarity())
+
     config.setOpenMode(IndexWriterConfig.OpenMode.CREATE)
     writer = IndexWriter(store, config)
 
     files_to_index = os.listdir("./AP")
     length = len(files_to_index)
-    print("Indexing %d files" % length)
+    print("Indexing %d files with the %s analyzer and the %s similarity metric" % (length, analyzer, similarity))
 
     for index, TrecFile in enumerate(files_to_index):
 
-        with open(os.path.abspath(os.path.join("AP",TrecFile)), 'r', encoding="utf-8") as docfile:
-            try:
-                contents    = docfile.read()
-            except UnicodeDecodeError:
-                pass
+        with open(os.path.abspath(os.path.join("AP",TrecFile)), 'r', encoding="utf-8", errors="ignore") as docfile:
+
+            contents    = docfile.read()
             xml         = '<ROOT>' + contents + "</ROOT>"
             root        = BeautifulSoup(xml, 'lxml')
 
@@ -100,8 +112,6 @@ def index(name, analyzer):
                     text        = text_el.text.strip()
                     luceneDoc.add(Field('text', text, content_field_type))
 
-                
-
                 writer.addDocument(luceneDoc)
     writer.commit()
 
@@ -109,4 +119,16 @@ def index(name, analyzer):
 
 if __name__ == "__main__":
 
-    index("Standard", BetterAnalyzer)
+    parser = argparse.ArgumentParser(description="Make some lucene indexes")
+    parser.add_argument("-a", "--all", const="all", nargs="?", required=False)
+    parser.add_argument("indextype", type=str, default="baseline", nargs='?')
+    parser.add_argument('similarity', type=str, default="classic", nargs='?')
+
+    args = parser.parse_args()
+
+    if(args.all):
+        for analyzer in ['baseline', 'better']:
+            for sim in ['classic', 'bm25']:
+                index(analyzer, sim)
+    else:
+        index(args.indextype, args.similarity)
