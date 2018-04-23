@@ -1,0 +1,50 @@
+001 # Antitrust Cases Pending # Document discusses a pending antitrust case.
+002 # Acquisitions # Document discusses a currently proposed acquisition involving a U.S. company and a foreign company.
+003 # Joint Ventures # Document will announce a new joint venture involving a Japanese company.
+004 # Debt Rescheduling # Document will discuss a current debt rescheduling agreement between a developing country and one or more of its creditor(s).
+005 # Dumping Charges # The U.S. or the EC charges Japan with dumping a product on any market and/or takes action against Japan for proven or suspected dumping.
+006 # Third World Debt Relief # Document will discuss debt relief for a developing country.
+007 # U.S. Budget Deficit # Document will mention a proposal to decrease the U.S. budget deficit.
+008 # Economic Projections # Document will contain quantitative projections of the future value of some economic indicator for countries other than the U.S.
+009 # U.S. Congressional Positions on the SDI # Document will identify position(s) held by members of the U.S. Congress on  paying for the Strategic Defense Initiative (SDI, also known as "star wars").
+010 # AIDS treatments # Document will mention a specific AIDS or ARC treatment.
+011 # Space Program # Document discusses the goals or plans of the space program or a space project of any country or organization.
+012 # Water Pollution # Document is about the pollution of a body of water.
+013 # Mitsubishi Heavy Industries Ltd. # Document refers to Mitusbishi Heavy Industries Ltd.
+014 # Drug Approval # Document cites current final national approval granted to a company to market a drug for the treatment of a specific ailment.
+015 # International Trade Liberalization Talks # Document will identify developments in international trade negotiations aimed at bolstering international commerce through reducing barriers to trade, or preventing the creation of such barriers.
+016 # Marketing of Agrochemicals # Document will describe marketing strategies carried out by U.S. companies for their agricultural chemicals, report predictions for market share of such chemicals, or report market statistics for the chemicals.
+017 # Measures to Control Agrochemicals # Document will announce measures to ban, regulate, or curb use of agricultural chemicals in the U.S. or use of chemicals abroad on produce for the U.S. market.
+018 # Japanese Stock Market Trends # Document will identify trends in the Japanese stock market.
+019 # U.S. Protectionist Measures # Document will identify a trade protection measure designed to benefit an identified U.S. corporation or industry.
+020 # Patent Infringement Lawsuits # Document will discuss a current patent infringement lawsuit.
+021 # Superconductors # Document cites a breakthrough in superconductivity research and identifies at least one commercial application.
+022 # Counternarcotics # Document will announce countermeasures to curb the production of illegal drugs abroad or to curb the entry of illegal drugs into the U.S.
+023 # Legal Repercussions of Agrochemical Use # Document will announce legal remedies for misuse, accidental or intentional, of agrochemicals worldwide.
+024 # New Medical Technology # Document reports new medical breakthroughs, in treatments, drugs, equipment.
+025 # Aftermath of Chernobyl # Document cites measures taken by European countries to record or contain the results of the Chernobyl accident.
+026 # Tracking Influential Players in Multimedia # Document identifies companies that develop multimedia applications, standards or specifications.
+027 # Expert systems and neural networks in business or # Document describes an expert system or neural network application for business or manufacturing in layman's terms.
+028 # AT&T's Technical Efforts # Document must describe AT&T's technical efforts in computers and communications.
+029 # Foreign installation of AT&T communications products # Document cites efforts by a foreign entity to obtain communications technology from AT&T.
+030 # OS/2 problems # Document cites problems associated with IBM's operating system product OS/2.
+031 # Advantages of OS/2 # Document cites technical advantages of IBM's OS/2 product over competing products.
+032 # Who outsources computer work to whom # Document will identify a company that outsources some of its computer work to another company.
+033 # Companies Capable of Producing Document Management # Document must identify a company who has the capability to produce a document management system by obtaining a turnkey-system or by obtaining and integrating the basic components.
+034 # Entities Involved In Building ISDN Applications and # Document must describe applications companies plan to build (are building, have built) for themselves or for others, which exploit ISDN's services and capabilities or identify general strategies for using ISDN.
+035 # Alternatives to Postscript # Document must identify a need for, or the existence of, an alternative to Postscript.
+036 # How Rewritable Optical Disks Work # Document describes the principles and mechanisms behind rewritable optical disk technology.
+037 # Identify SAA components # Document identifies software products which adhere to IBM's SAA standards.
+038 # Impact of the "Religious Right" on U.S. Law # Document will report on specific legal actions which reflect actions by, and the agenda of, the "religious right."
+039 # Client-Server Plans and Expectations # Document must state how a client-server implementation will be carried out and why it will help them.
+040 # Analyses of Savings and Loan Failures # Document will provide at least one reason why a U.S. Savings and Loan has failed, or why the industry generally is under stress.
+041 # Computer or Communications Systems Upgrade # Document must identify an organization beginning, in the midst, or recently completing a computer or communications system upgrade.
+042 # What is End User Computing and Who's Doing It # Document must discuss end-user computing in general or identify organizations performing end-user computing or showing a capacity for performing end-user computing.
+043 # U.S. Technology Policy # Document will describe federal actions to encourage, select, or protect technology because of its presumed centrality to the future defense posture or economic competitiveness of the U.S.
+044 # Staff Reductions at Computers and Communications # Document reports cutbacks or projected cutbacks of more than 500 workers for a computer or communications company.
+045 # What Makes CASE succeed or fail # Document must identify the ingredients for making CASE work, and identify companies with experience using CASE.
+046 # Tracking Computer Virus Outbreaks # Document will identify a computer virus attack and name the victimized organization.
+047 # Contracts for Computer systems in excess of $1 Million. # Document must report the granting of a contract for computer or communications equipment or services valued at more than $1 Million.
+048 # Purchasers of Modern Communications Equipment # Document must identify an organization purchasing a piece of communications equipment or software, described in database.
+049 # Who's working with Supercomputers # Document must identify an organization involved in the operation, programming or purchase of a supercomputer.
+050 # Potential Military Interest in Virtual Reality # Document must describe virtual reality investigations being conducted by entities associated with the military industrial complex.
