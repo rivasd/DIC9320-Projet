@@ -12,19 +12,11 @@ from org.apache.lucene.document import Document, Field, FieldType
 from org.apache.lucene.index import \
     FieldInfo, IndexWriter, IndexWriterConfig, IndexOptions
 from org.apache.lucene.search.similarities import ClassicSimilarity, BM25Similarity
-import org.apache.pylucene
 
-lucene.initVM(vmargs=['-Djava.awt.headless=true'])
 
-tag_field_type = FieldType()
-tag_field_type.setStored(True)
-tag_field_type.setTokenized(False)
-tag_field_type.setIndexOptions(IndexOptions.DOCS_AND_FREQS)
 
-content_field_type  = FieldType()
-content_field_type.setStored(True)
-content_field_type.setTokenized(True)
-content_field_type.setIndexOptions(IndexOptions.DOCS_AND_FREQS_AND_POSITIONS)
+
+
 
 # just a simple function to output a progressbar during indexing
 def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '█'):
@@ -48,6 +40,16 @@ def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, 
         print()
 
 def index(analyzer="baseline", similarity="classic"):
+
+    tag_field_type = FieldType()
+    tag_field_type.setStored(True)
+    tag_field_type.setTokenized(False)
+    tag_field_type.setIndexOptions(IndexOptions.DOCS_AND_FREQS)
+
+    content_field_type  = FieldType()
+    content_field_type.setStored(True)
+    content_field_type.setTokenized(True)
+    content_field_type.setIndexOptions(IndexOptions.DOCS_AND_FREQS_AND_POSITIONS)
 
     idx_name = analyzer.lower()+"_"+similarity.lower()
 
@@ -119,6 +121,8 @@ def index(analyzer="baseline", similarity="classic"):
 
 if __name__ == "__main__":
 
+    lucene.initVM(vmargs=['-Djava.awt.headless=true'])
+
     parser = argparse.ArgumentParser(description="Make some lucene indexes")
     parser.add_argument("-a", "--all", const="all", nargs="?", required=False)
     parser.add_argument("indextype", type=str, default="baseline", nargs='?')
@@ -130,5 +134,6 @@ if __name__ == "__main__":
         for analyzer in ['baseline', 'better']:
             for sim in ['classic', 'bm25']:
                 index(analyzer, sim)
+                print("Done\n")
     else:
         index(args.indextype, args.similarity)
