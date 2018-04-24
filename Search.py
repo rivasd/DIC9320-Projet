@@ -44,7 +44,7 @@ class Search(object):
 
         with open(os.path.join("./requetes",self.requetes), 'r') as req_file:
             for line in req_file:
-                elems = [elem.strip() for elem in line.split("#")]
+                elems = [elem.lstrip() for elem in line.split("#")]
                 if len(elems) > 2:
 
                     # remove the frequent useless words from the query that merely state that a query is being made
@@ -81,7 +81,7 @@ class Search(object):
                 run     = "Daniel_Rivas_DIC9320_Hiver_2018"
 
                 results.append({
-                    'query_num':str(count),
+                    'query_num':query_num,
                     'docno':docno,
                     'sim':sim,
                     'rank':rank,
