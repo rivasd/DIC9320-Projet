@@ -47,7 +47,7 @@ def index(analyzer="baseline", similarity="classic"):
     tag_field_type.setIndexOptions(IndexOptions.DOCS_AND_FREQS)
 
     content_field_type  = FieldType()
-    content_field_type.setStored(True)
+    content_field_type.setStored(False)
     content_field_type.setTokenized(True)
     content_field_type.setIndexOptions(IndexOptions.DOCS_AND_FREQS_AND_POSITIONS)
 
@@ -83,34 +83,34 @@ def index(analyzer="baseline", similarity="classic"):
 
             contents    = docfile.read()
             xml         = '<ROOT>' + contents + "</ROOT>"
-            root        = BeautifulSoup(xml, 'lxml')
+            root        = BeautifulSoup(xml, 'xml')
 
             printProgressBar(index, length, TrecFile+"[", "]")
 
-            for doc in root.find_all('doc'):
+            for doc in root.find_all('DOC'):
                 luceneDoc   = Document()
 
-                if doc.find('fileid') is not None:
-                    fileid        = doc.find('fileid').text.strip()
+                if doc.find('FILEID') is not None:
+                    fileid        = doc.find('FILEID').text.strip()
                     luceneDoc.add(Field('fileid', fileid, tag_field_type))
 
-                if doc.find('head') is not None:
-                    head        = doc.find('head').text.strip()
+                if doc.find('HEAD') is not None:
+                    head        = doc.find('HEAD').text.strip()
                     luceneDoc.add(Field('head', head, tag_field_type))
 
-                if doc.find('docno') is not None:
-                    doc_no      = doc.find('docno').text.strip()
+                if doc.find('DOCNO') is not None:
+                    doc_no      = doc.find('DOCNO').text.strip()
                     luceneDoc.add(Field('docno', doc_no, tag_field_type))
 
-                if doc.find('dateline') is not None:
-                    dateline      = doc.find('dateline').text.strip()
+                if doc.find('DATELINE') is not None:
+                    dateline      = doc.find('DATELINE').text.strip()
                     luceneDoc.add(Field('dateline', dateline, tag_field_type))
 
-                if doc.find('first') is not None:
-                    first      = doc.find('first').text.strip()
+                if doc.find('FIRST') is not None:
+                    first      = doc.find('FIRST').text.strip()
                     luceneDoc.add(Field('first', first, tag_field_type))
 
-                for text_el in doc.find_all('text'):
+                for text_el in doc.find_all('TEXT'):
                     text        = text_el.text.strip()
                     luceneDoc.add(Field('text', text, content_field_type))
 
@@ -118,6 +118,7 @@ def index(analyzer="baseline", similarity="classic"):
     writer.commit()
 
     writer.close()
+    print("Done\n")
 
 if __name__ == "__main__":
 

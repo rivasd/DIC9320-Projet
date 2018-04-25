@@ -7,3 +7,5 @@ Indexes/baseline_bm25
 Indexes/better_classic
 Indexes/better_bm25
 */__pycache__/
+terms/
+annoy/

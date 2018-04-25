@@ -1,14 +1,17 @@
 
 import os
 from collections import OrderedDict
+import argparse
 
 import lucene
 
 from java.nio.file import Paths
-from org.apache.lucene.index import DirectoryReader, IndexReader
+from org.apache.lucene.index import DirectoryReader, IndexReader, MultiFields
 from org.apache.lucene.search import IndexSearcher, Query, TopDocs
 from org.apache.lucene.queryparser.classic import QueryParser
 from org.apache.lucene.store import SimpleFSDirectory
+from org.apache.lucene.util import BytesRef, BytesRefIterator
+
 
 from Analyzers import BaselineAnalyzer, BetterAnalyzer
 from Indexer import printProgressBar
@@ -44,7 +47,7 @@ class Search(object):
 
         with open(os.path.join("./requetes",self.requetes), 'r') as req_file:
             for line in req_file:
-                elems = [elem.lstrip() for elem in line.split("#")]
+                elems = [elem.strip() for elem in line.split("#")]
                 if len(elems) > 2:
 
                     # remove the frequent useless words from the query that merely state that a query is being made
@@ -81,7 +84,7 @@ class Search(object):
                 run     = "Daniel_Rivas_DIC9320_Hiver_2018"
 
                 results.append({
-                    'query_num':query_num,
+                    'query_num':query_num.lstrip("0"),
                     'docno':docno,
                     'sim':sim,
                     'rank':rank,
@@ -108,21 +111,77 @@ class Search(object):
                 line = "%s %s %s %s %s %s\n" % (result["query_num"], result["iter"], result["docno"], result["rank"], result["sim"], result["run"])
                 res_file.write(line)
 
+    def list_all_words(self, to_file=False):
 
+        dictionary = []
 
+        fields  = MultiFields.getFields(self.reader)
+        terms   = fields.terms('text')
+        termsEnum= terms.iterator()
+        for byteref in BytesRefIterator.cast_(termsEnum):
+            word = byteref.utf8ToString()
+            dictionary.append(word)
+
+        if to_file:
+            dict_path = os.path.join(os.path.dirname(__file__), "terms")
+
+            if not os.path.exists(dict_path):
+                os.mkdir(dict_path)
+            
+            with open(os.path.join(dict_path, self.dir+"_dict.txt"), "wt") as f:
+                for term in dictionary:
+                    f.write(term+"\n")
+
+        return dictionary
+
+    def simple_search(self, term):
+        topdocs =  self.searcher.search(self.queryparser.parse(term), 10).scoreDocs
+        for scoreDoc in topdocs:
+            doc = self.searcher.doc(scoreDoc.doc)
+
+            print("%s: %s" % (doc.get('docno'), doc.get('head')))
 
 
 if __name__ == "__main__":
 
+    parser = argparse.ArgumentParser("search some lucene indexes")
+    parser.add_argument("-r", "--results", nargs="?", required=False, const="results")
+    parser.add_argument("-s", "--search", nargs=2)
+    parser.add_argument("-d", "--dict", nargs="?", const="dict", required=False)
+    args = parser.parse_args()
+
     lucene.initVM(vmargs=['-Djava.awt.headless=true'])
 
-    for analyzer in ['baseline', 'better']:
-        for similarity in ['classic', 'bm25']:
-            for requete in ['Courtes', 'Longues']:
-                search = Search(analyzer+"_"+similarity, "requetes"+requete+".txt")
+    if args.results:
+        for analyzer in ['baseline', 'better']:
+            for similarity in ['classic', 'bm25']:
+                for requete in ['Courtes', 'Longues']:
+                    search = Search(analyzer+"_"+similarity, "requetes"+requete+".txt")
 
-                print("Compiling search results for model: \n%s analyzer | %s similarity | requetes %s" % (analyzer, similarity, requete ) )
+                    print("Compiling search results for model: \n%s analyzer | %s similarity | requetes %s" % (analyzer, similarity, requete ) )
 
-                search.to_file(analyzer+"_"+similarity+"_"+requete.lower()+".txt")
+                    search.to_file(analyzer+"_"+similarity+"_"+requete.lower()+".txt")
+                    
+                    print("Done\n")
 
-                print("Done\n")
+    elif args.search:
+
+        search = Search(args.search[0]+"_"+args.search[1], "requetesCourtes.txt")
+
+        if args.dict:
+            print("saving a file of all words in the lucene index...")
+            search.list_all_words(to_file=True)
+            print("Done")
+        
+        print("Searching within AP88-90 corpus with Lucene model: \n%s analyzer | %s similarity" % (args.search[0], args.search[1]))
+
+        while True:
+            search_text = input("Search query: ")
+            if not search_text:
+                break
+            search.simple_search(search_text)
+        
+        print("Thank you for searching, have a nice day")
+
+    else:
+        parser.print_help()
