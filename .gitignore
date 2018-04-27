@@ -9,3 +9,4 @@ Indexes/better_bm25
 */__pycache__/
 terms/
 annoy/
+vectors/
