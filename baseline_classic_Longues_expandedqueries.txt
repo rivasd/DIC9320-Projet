@@ -1,0 +1,250 @@
+001
+Antitrust Cases Pending  es a pending antitrust case.
+Antitrust Cases Pending  es a pending antitrust case.
+ antitrust antimonopoly Antimonopoly anticompetitive Anticompetitive cases Prosecutions Incidences Incidents Dismissals
+
+002
+Acquisitions  es a currently proposed acquisition involving a U.S. company and a foreign company.
+Acquisitions  es a currently proposed acquisition involving a U.S. company and a foreign company.
+ Acquisition acquisitions Acquistions acquisition Acquistion en tor te y va
+
+003
+Joint Ventures   announce a new joint venture involving a Japanese company.
+Joint Ventures   announce a new joint venture involving a Japanese company.
+ joint Interdepartmental Coordination Trilateral General Partners Venture Accel Capital Investments
+
+004
+Debt Rescheduling    a current debt rescheduling agreement between a developing country and one or more of its creditor(s).
+Debt Rescheduling    a current debt rescheduling agreement between a developing country and one or more of its creditor\(s\).
+ debt Debts indebtedness Defaulted Liquidity rescheduling reschedule Postponement Scheduling Postponing
+
+005
+Dumping Charges The U.S. or the EC charges Japan with dumping a product on any market and/or takes action against Japan for proven or suspected dumping.
+Dumping Charges The U.S. or the EC charges Japan with dumping a product on any market and\/or takes action against Japan for proven or suspected dumping.
+ dumping Incinerating Dump Littering Polluting charges Indictments Arrests Allegations Charge
+
+006
+Third World Debt Relief    debt relief for a developing country.
+Third World Debt Relief    debt relief for a developing country.
+ Second Fifth Sixth Fourth Tenth Wolrd Worlds International world _World
+
+007
+U.S. Budget Deficit    a proposal to decrease the U.S. budget deficit.
+U.S. Budget Deficit    a proposal to decrease the U.S. budget deficit.
+ American Canadian US British foreign budget Budgets Budgetary Fiscal budgetary
+
+008
+Economic Projections    quantitative projections of the future value of some economic indicator for countries other than the U.S.
+Economic Projections    quantitative projections of the future value of some economic indicator for countries other than the U.S.
+ economic Macroeconomic Economy Competitiveness Competiveness Forecasts projections Projected Figures Forecast
+
+009
+U.S. Congressional Positions on the SDI    position(s) held by members of the U.S. Congress on  paying for the Strategic Defense Initiative (SDI, also known as "star wars").
+U.S. Congressional Positions on the SDI    position\(s\) held by members of the U.S. Congress on  paying for the Strategic Defense Initiative \(SDI, also known as \"star wars\"\).
+ American Canadian US British foreign congressional Senate Congress Legislative Congressman
+
+010
+AIDS treatments    a specific AIDS or ARC treatment.
+AIDS treatments    a specific AIDS or ARC treatment.
+ Aids AIDs HIV Malaria malaria therapies therapy treatment Treatments chemotherapies
+
+011
+Space Program  es the goals or plans of the space program or a space project of any country or organization.
+Space Program  es the goals or plans of the space program or a space project of any country or organization.
+ NASA space Suborbital Spaceflight Spacesuits Progam Programs Programme program Initiative
+
+012
+Water Pollution  is about the pollution of a body of water.
+Water Pollution  is about the pollution of a body of water.
+ water Groundwater Waterworks Wastewater Sewage pollution Polluted Pollutant Polluting Pollutants
+
+013
+Mitsubishi Heavy Industries Ltd.   to Mitusbishi Heavy Industries Ltd.
+Mitsubishi Heavy Industries Ltd.   to Mitusbishi Heavy Industries Ltd.
+ Nissan Isuzu Mazda Mitsubish Hyundai heavy Heavier Massive heavier heaviest
+
+014
+Drug Approval   current final national approval granted to a company to market a drug for the treatment of a specific ailment.
+Drug Approval   current final national approval granted to a company to market a drug for the treatment of a specific ailment.
+ drug Drugs drugs Cocaine Heroin approval Approvals Approved approvals Approving
+
+015
+International Trade Liberalization Talks    developments in international trade negotiations aimed at bolstering international commerce through reducing barriers to trade, or preventing the creation of such barriers.
+International Trade Liberalization Talks    developments in international trade negotiations aimed at bolstering international commerce through reducing barriers to trade, or preventing the creation of such barriers.
+ Internation Int'l Internationl Intl Global trade WTC TRADE Trades Trading
+
+016
+Marketing of Agrochemicals   describe marketing strategies carried out by U.S. companies for their agricultural chemicals, report predictions for market share of such chemicals, or report market statistics for the chemicals.
+Marketing of Agrochemicals   describe marketing strategies carried out by U.S. companies for their agricultural chemicals, report predictions for market share of such chemicals, or report market statistics for the chemicals.
+ marketing Advertising Marketer Branding Merchandising Formulators Polyesters agrochemicals Chemicals Detergents
+
+017
+Measures to Control Agrochemicals   announce measures to ban, regulate, or curb use of agricultural chemicals in the U.S. or use of chemicals abroad on produce for the U.S. market.
+Measures to Control Agrochemicals   announce measures to ban, regulate, or curb use of agricultural chemicals in the U.S. or use of chemicals abroad on produce for the U.S. market.
+ measures Actions Precautions Legislation Proposals Monitoring control Controls Controlling Supression
+
+018
+Japanese Stock Market Trends    trends in the Japanese stock market.
+Japanese Stock Market Trends    trends in the Japanese stock market.
+ Japan Japenese Korean Tokyo Japans Stocks stock Shares Commodity Stk
+
+019
+U.S. Protectionist Measures    a trade protection measure designed to benefit an identified U.S. corporation or industry.
+U.S. Protectionist Measures    a trade protection measure designed to benefit an identified U.S. corporation or industry.
+ protectionist Protectionism Isolationist Counterproductive Undemocratic measures Actions Precautions Legislation Proposals
+
+020
+Patent Infringement Lawsuits    a current patent infringement lawsuit.
+Patent Infringement Lawsuits    a current patent infringement lawsuit.
+ patent Patents patents Trademark patenting Infringing Infringed Copyrights Infringe Infringements
+
+021
+Superconductors   a breakthrough in superconductivity research and identifies at least one commercial application.
+Superconductors   a breakthrough in superconductivity research and identifies at least one commercial application.
+ superconductors Superconducting Superconductivity superconductor Conductivity breakthroughs breakthough Breakthrough milestone groundbreaking
+
+022
+Counternarcotics   announce countermeasures to curb the production of illegal drugs abroad or to curb the entry of illegal drugs into the U.S.
+Counternarcotics   announce countermeasures to curb the production of illegal drugs abroad or to curb the entry of illegal drugs into the U.S.
+ Antidrug antinarcotics counternarcotics Antinarcotics Narcotics announced announces annouce announcing unveil
+
+023
+Legal Repercussions of Agrochemical Use   announce legal remedies for misuse, accidental or intentional, of agrochemicals worldwide.
+Legal Repercussions of Agrochemical Use   announce legal remedies for misuse, accidental or intentional, of agrochemicals worldwide.
+ legal Litigation Laywers Law Litigator Ramifications reverberations fallout Reverberations Turmoil
+
+024
+New Medical Technology  reports new medical breakthroughs, in treatments, drugs, equipment.
+New Medical Technology  reports new medical breakthroughs, in treatments, drugs, equipment.
+ theNew Jersery Hamphire England _New Dental Medial Surgical Health Pediatric
+
+025
+Aftermath of Chernobyl   measures taken by European countries to record or  the results of the Chernobyl accident.
+Aftermath of Chernobyl   measures taken by European countries to record or  the results of the Chernobyl accident.
+ Devastates Devastation Throes Ravages Averted Fukushima Mayak Semipalatinsk Chernobyls Pripyat
+
+026
+Tracking Influential Players in Multimedia  identifies companies that develop multimedia applications, standards or specifications.
+Tracking Influential Players in Multimedia  identifies companies that develop multimedia applications, standards or specifications.
+ tracking Tracker tracked Tagging Monitoring influential Prominent Eminent prominent Leading
+
+027
+Expert systems and neural networks in business or  describes an expert system or neural network application for business or manufacturing in layman's terms.
+Expert systems and neural networks in business or  describes an expert system or neural network application for business or manufacturing in layman's terms.
+ expert Consultant experts Experts Panel system sytems technologies subsystems modules
+
+028
+AT&T's Technical Efforts   describe AT&T's technical efforts in computers and communications.
+AT\&T's Technical Efforts   describe AT\&T's technical efforts in computers and communications.
+ FROM HOLDS GETS SUGGESTS BECOMES S L T. C J
+
+029
+Foreign installation of AT&T communications products   efforts by a foreign entity to obtain communications technology from AT&T.
+Foreign installation of AT\&T communications products   efforts by a foreign entity to obtain communications technology from AT\&T.
+ foreign Foriegn oreign Foregin Overseas Installation installing install Installing installed
+
+030
+OS/2 problems   problems associated with IBM's operating system product OS/2.
+OS\/2 problems   problems associated with IBM's operating system product OS\/2.
+ problem difficulties troubles woes Problems problem difficulties troubles woes Problems
+
+031
+Advantages of OS/2   technical advantages of IBM's OS/2 product over competing products.
+Advantages of OS\/2   technical advantages of IBM's OS\/2 product over competing products.
+ Disadvantages advantages Drawbacks Considerations Impediments techincal Technical techinical technological logistical
+
+032
+Who outsources computer work to whom    a company that outsources some of its computer work to another company.
+Who outsources computer work to whom    a company that outsources some of its computer work to another company.
+ Why Whose Nobody How Where computers laptop Computer PC laptops
+
+033
+Companies Capable of Producing Document Management    a company who has the capability to produce a document management system by obtaining a turnkey-system or by obtaining and integrating the basic components.
+Companies Capable of Producing Document Management    a company who has the capability to produce a document management system by obtaining a turnkey\-system or by obtaining and integrating the basic components.
+ Firms Businesses companies Employers Corporations capable Incapable Efficiently incapable Merely
+
+034
+Entities Involved In Building ISDN Applications and   describe applications companies plan to build (are building, have built) for themselves or for others, which exploit ISDN's services and capabilities or  general strategies for using ISDN.
+Entities Involved In Building ISDN Applications and   describe applications companies plan to build \(are building, have built\) for themselves or for others, which exploit ISDN's services and capabilities or  general strategies for using ISDN.
+ Entity entities Shareholdings Jurisdictions Companies Implicated Killed Engaged Involves Arrested
+
+035
+Alternatives to Postscript    a need for, or the existence of, an alternative to Postscript.
+Alternatives to Postscript    a need for, or the existence of, an alternative to Postscript.
+ Choices Alternative Programs Strategies alternatives POSTSCRIPT Errata Pdf Rereading Ramblings
+
+036
+How Rewritable Optical Disks Work  describes the principles and mechanisms behind rewritable optical disk technology.
+How Rewritable Optical Disks Work  describes the principles and mechanisms behind rewritable optical disk technology.
+ Why What Did how Where Recordable Duplicators rewritable Overwrite Inductor
+
+037
+Identify SAA components  identifies software products which adhere to IBM's SAA standards.
+Identify SAA components  identifies software products which adhere to IBM's SAA standards.
+ Assess Examine Determine Evaluate Understand Telkom Airlink airline Comair Lufthansa
+
+038
+Impact of the "Religious Right" on U.S. Law   report on specific legal actions which reflect actions by, and the agenda of, the "religious right."
+Impact of the \"Religious Right\" on U.S. Law   report on specific legal actions which reflect actions by, and the agenda of, the \"religious right.\"
+ Impacts Impacting Effects impact Ramifications this in that ofthe another
+
+039
+Client-Server Plans and Expectations   state how a client-server implementation  be carried out and why it  help them.
+Client\-Server Plans and Expectations   state how a client\-server implementation  be carried out and why it  help them.
+ Proposals plans Planned Preparations PLANS Expectation expectations Hopes expections Optimism
+
+040
+Analyses of Savings and Loan Failures   provide at least one reason why a U.S. Savings and Loan has failed, or why the industry generally is under stress.
+Analyses of Savings and Loan Failures   provide at least one reason why a U.S. Savings and Loan has failed, or why the industry generally is under stress.
+ Analysis analyzes Findings Measurements Multivariate savings Savers IDeal Saver Downpayment
+
+041
+Computer or Communications Systems Upgrade    an organization beginning, in the midst, or recently completing a computer or communications system upgrade.
+Computer or Communications Systems Upgrade    an organization beginning, in the midst, or recently completing a computer or communications system upgrade.
+ Computers computer Computing computers Electronics either any Or eg otherwise
+
+042
+What is End User Computing and Who's Doing It    end-user computing in general or  organizations performing end-user computing or showing a capacity for performing end-user computing.
+What is End User Computing and Who's Doing It    end\-user computing in general or  organizations performing end\-user computing or showing a capacity for performing end\-user computing.
+ Which How So That Why was seems Is becomes appears
+
+043
+U.S. Technology Policy   describe federal actions to encourage, select, or protect technology because of its presumed centrality to the future defense posture or economic competitiveness of the U.S.
+U.S. Technology Policy   describe federal actions to encourage, select, or protect technology because of its presumed centrality to the future defense posture or economic competitiveness of the U.S.
+ American Canadian US British foreign Technolgy Techonology Techology Innovation technology
+
+044
+Staff Reductions at Computers and Communications  reports cutbacks or projected cutbacks of more than 500 workers for a computer or communications company.
+Staff Reductions at Computers and Communications  reports cutbacks or projected cutbacks of more than 500 workers for a computer or communications company.
+ staff STaff Corespondent Correspondant STAFF reductions Increases reduction Reduced Cutbacks
+
+045
+What Makes CASE succeed or fail    the ingredients for making CASE work, and  companies with experience using CASE.
+What Makes CASE succeed or fail    the ingredients for making CASE work, and  companies with experience using CASE.
+ Which How So That Why Gets Becomes Delivers Brings Gives
+
+046
+Tracking Computer Virus Outbreaks    a computer virus attack and name the victimized organization.
+Tracking Computer Virus Outbreaks    a computer virus attack and name the victimized organization.
+ tracking Tracker tracked Tagging Monitoring Computers computer Computing computers Electronics
+
+047
+Contracts for Computer systems in excess of $1 Million.   report the granting of a contract for computer or communications equipment or services valued at more than $1 Million.
+Contracts for Computer systems in excess of $1 Million.   report the granting of a contract for computer or communications equipment or services valued at more than $1 Million.
+ Contract contracts Agreements Subcontract Subcontracts forthe give in For giving
+
+048
+Purchasers of Modern Communications Equipment    an organization purchasing a piece of communications equipment or software, described in database.
+Purchasers of Modern Communications Equipment    an organization purchasing a piece of communications equipment or software, described in database.
+ purchasers Buyers Customers Registrants Consumers Contemporary modern Primitive Philosophic Classical
+
+049
+Who's working with Supercomputers    an organization involved in the operation, programming or purchase of a supercomputer.
+Who's working with Supercomputers    an organization involved in the operation, programming or purchase of a supercomputer.
+ Why Whose Nobody How Where worked work Working collaborating works
+
+050
+Potential Military Interest in Virtual Reality   describe virtual reality investigations being conducted by entities associated with the military industrial complex.
+Potential Military Interest in Virtual Reality   describe virtual reality investigations being conducted by entities associated with the military industrial complex.
+ potential Possible Prospective prospective Likely military Civilian Miltary Army Naval
+

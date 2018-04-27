@@ -23,7 +23,7 @@ class Search(object):
 
     querystoplist = ["Document", "will", "must", "identify", "discuss", "discusses", "mention", "contain", "cites", "identify", "refers"]
 
-    def __init__(self, dir, requetes, expander=None):
+    def __init__(self, dir, requetes, expander=None, method=None):
         self.dir = dir
         self.requetes = requetes
         if expander:
@@ -40,26 +40,36 @@ class Search(object):
 
         self.queryparser    = QueryParser("text", self.analyzer)
         self.searcher.setSimilarity(self.similarity)
+
+        if expander:
+            self.expander = expander
+        if method:
+            self.method = method
     
     def build_queries(self):
         
         queries = OrderedDict()
 
-        with open(os.path.join("./requetes",self.requetes), 'r') as req_file:
+        with open(os.path.join("./requetes", "requetes"+self.requetes.capitalize()+".txt"), 'r') as req_file:
             for line in req_file:
                 elems = [elem.strip() for elem in line.split("#")]
                 if len(elems) > 2:
 
                     # remove the frequent useless words from the query that merely state that a query is being made
                     for querystopword in self.querystoplist:
-                        elems[2].replace(querystopword, "")
+                        elems[2] = elems[2].replace(querystopword, "")
                     
                     # concatenate the short and big query to make the final query
                     query = elems[1] + " " + elems[2]
                 else:
                     query = elems[1]
                 
-                query = self.queryparser.escape(query)
+                if self.expander:
+                    # expand the query using word vectors if available
+                    query = self.expander.expand(query, centroid=self.method)
+
+                query = query.replace("/", "\/")
+                query = query.strip("\n")
                 queries[elems[0]] = self.queryparser.parse(query)
         
         return queries
@@ -96,14 +106,18 @@ class Search(object):
         print("search complete, now writing to file...")
         return results
 
-    def to_file(self, file_name):
+    def to_file(self):
         
         results = self.execute()
+        file_name = self.dir + "_"+ self.requetes
+
+        if self.expander:
+            file_name += "_expanded"
 
         if not os.path.isdir("./results"):
             os.mkdir("./results")
 
-        with open(os.path.join("./results", file_name), 'wt') as res_file:
+        with open(os.path.join("./results", file_name+".txt"), 'wt') as res_file:
             for idx, result in enumerate(results):
 
                 printProgressBar(idx+1, len(results), prefix="        ")
@@ -142,10 +156,46 @@ class Search(object):
             print("%s: %s" % (doc.get('docno'), doc.get('head')))
 
 
+    def expansions_to_file(self):
+        queries = OrderedDict()
+
+        with open(self.dir+"_"+self.requetes+"_"+str(self.method)+"_expandedqueries.txt", "wt") as expansions:
+            with open(os.path.join("./requetes", "requetes"+self.requetes.capitalize()+".txt"), 'r') as req_file:
+                for line in req_file:
+                    elems = [elem.strip() for elem in line.split("#")]
+                    expansions.write(elems[0]+"\n")
+                    if len(elems) > 2:
+
+                        # remove the frequent useless words from the query that merely state that a query is being made
+                        for querystopword in self.querystoplist:
+                            elems[2] = elems[2].replace(querystopword, "")
+                        
+                        # concatenate the short and big query to make the final query
+                        query = elems[1] + " " + elems[2]
+                    else:
+                        query = elems[1]
+
+                    expansions.write(query+'\n')
+                    
+                    if self.expander:
+                        # expand the query using word vectors if available
+                        query = self.expander.expand(query, centroid=self.method)
+
+                    query = self.queryparser.escape(query)
+                    
+                    expansions.write(query+"\n")
+                    expansions.write("\n")
+                    queries[elems[0]] = query
+
+        return queries
+
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser("search some lucene indexes")
     parser.add_argument("-r", "--results", nargs="?", required=False, const="results")
+    parser.add_argument("-e", "--expand", nargs="?", required=False, const="expand")
+    parser.add_argument("-c", "--centroid", nargs="?", required=False, const="centroid")
     parser.add_argument("-s", "--search", nargs=2)
     parser.add_argument("-d", "--dict", nargs="?", const="dict", required=False)
     args = parser.parse_args()
@@ -153,14 +203,24 @@ if __name__ == "__main__":
     lucene.initVM(vmargs=['-Djava.awt.headless=true'])
 
     if args.results:
+        if args.expand:
+            from Embeddings import GoogleNewsEmbeddings
+            expander = GoogleNewsEmbeddings()
+
+
         for analyzer in ['baseline', 'better']:
             for similarity in ['classic', 'bm25']:
                 for requete in ['Courtes', 'Longues']:
-                    search = Search(analyzer+"_"+similarity, "requetes"+requete+".txt")
+
+                    if args.expand:
+                        search = Search(analyzer+"_"+similarity, requete, expander=expander, method=args.centroid)
+                    else:
+                        search = Search(analyzer+"_"+similarity, requete)
 
                     print("Compiling search results for model: \n%s analyzer | %s similarity | requetes %s" % (analyzer, similarity, requete ) )
-
-                    search.to_file(analyzer+"_"+similarity+"_"+requete.lower()+".txt")
+                    search.expansions_to_file()
+                    search.to_file()
+                    
                     
                     print("Done\n")
 
